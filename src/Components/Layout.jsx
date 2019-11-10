@@ -1,43 +1,24 @@
-import React from 'react'
-import Card from './Card'
-import FindMeCard from './FindMeCard'
-import LogoSort from './LogoSort'
+import React, { useState } from "react";
+import Score from "./Score";
+import MainContainer from "./MainContainer";
 
 const Layout = () => {
+  let [penalty, setPenalty] = useState(0);
 
-  const drawRandomCards = () => {
-      return (
-        <div className='p-3'>
-          <Card />
-        </div>
-      )
-  }
+  const penalize = () => {
+    setPenalty((penalty += 10));
+  };
 
   return (
-    <div className='p-5'>
-      <div className='row'>
-        <div className='d-flex col-9 p-3'>
-            { (forlet i=0;i<4;i++) {
-                drawRandomCards()
-            }}
-        
-        </div>
-        <div className='find-this-card-div d-flex col-3 justify-content-center p-3'>
-          <ul>
-            <li>
-              <h3>Find This Card</h3>
-            </li>
-            <li>
-              <FindMeCard />
-            </li>
-          </ul>
-        </div>
+    <div className="p-5">
+      <div className="container">
+        <Score penalty={penalty} />
       </div>
-      <div className='row logo-div p-3'>
-        <LogoSort />
+      <div className="row">
+        <MainContainer penalize={penalize} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

@@ -1,17 +1,30 @@
-import React from 'react'
+import React, { Fragment } from "react";
 
-const FindMeCard = () => {
+const imagesPath = process.env.PUBLIC_URL + "/assets/";
+
+const FindMeCard = props => {
+  let { findMeItem } = props;
+  let find = <p>Find This Card</p>;
+  let isFound = (
+    <p>No More Cards? Stay put big guy, you still gotta sort the letters</p>
+  );
+
   return (
-    <div className='flip-card'>
-        <div className='flip-card-front'>
+    <div className="find-me-div">
+      <div className="d-flex-row">{props.allFound ? isFound : find}</div>
+      <div className="d-flex justify-content-center">
+        {!props.allFound && findMeItem ? (
           <img
-            src={require('../Assets/question.jpg')}
-            alt='Avatar'
-            style={{ width: '300px', height: '300px' }}
+            className="card-img"
+            src={`${imagesPath}${findMeItem.src}`}
+            alt=""
           />
-        </div>
+        ) : (
+          <img className="card-img" src={`${imagesPath}check.png`} alt="" />
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default FindMeCard
+export default FindMeCard;
