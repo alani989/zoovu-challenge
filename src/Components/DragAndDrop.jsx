@@ -1,68 +1,65 @@
-import React from "react";
-import DragSortableList from "react-drag-sortable";
+import React from 'react'
+import DragSortableList from 'react-drag-sortable'
 
-const imagesPath = process.env.PUBLIC_URL + "/assets/";
+const imagesPath = process.env.PUBLIC_URL + '/assets/'
 
 const DragAndDrop = props => {
+
   const drawRandomCards = letters => {
     return letters.map((letter, i) => {
       return (
-        <div
-          className="drag-box"
-          key={`drag-box-key-${i}`}
-          onDrop={e => props.drop(e)}
-          onDragOver={e => props.allowDrop(e)}
-        >
+        <div className='drag-box' key={`drag-box-key-${i}`}>
           <img
-            className="card-img"
+            className='card-img'
             id={letter.id}
             src={`${imagesPath}question.jpg`}
             onDragStart={e => drag(e)}
             alt={letter.src}
           />
         </div>
-      );
-    });
-  };
+      )
+    })
+  }
 
   const drag = e => {
-    e.dataTransfer.setData("text", e.target.id);
-  };
+    e.dataTransfer.setData('text', e.target.id)
+  }
 
-  const onSort = (sortedList, dropEvent) => {
-    let newList = [];
-    sortedList.map(letter => {
-      newList.push(letter.id);
-    });
-    checkSort(newList);
-  };
+  const onSort = sortedList => {
+    props.getSortLetters(sortedList)
+    console.log(sortedList)
+    if (!props.findMeItem) {
+      checkSort(sortedList)
+    }
+  }
 
   const checkSort = arr => {
-    let sorted = false;
+    let sorted = false
     if (
-      arr[0] === "z" &&
-      arr[1] === "o" &&
-      arr[2] === "o2" &&
-      arr[3] === "v" &&
-      arr[4] === "u"
+      arr[0].id === 'z' &&
+      arr[1].id === 'o' &&
+      arr[2].id === 'o2' &&
+      arr[3].id === 'v' &&
+      arr[4].id === 'u'
     ) {
-      sorted = true;
+      sorted = true
     }
-    return sorted;
-  };
+
+    if (sorted === true) {
+      props.endGame()
+    }
+    return sorted
+  }
 
   return (
     <div>
-      <div className="row">{drawRandomCards(props.letters)}</div>
-      <br />
+      <div className='row'>{drawRandomCards(props.letters)}</div>
       <hr />
-      <DragSortableList
-        items={props.sortList}
-        onSort={onSort}
-        type="horizontal"
-      />
+      <div className='row'>
+        <DragSortableList items={props.sortList} onSort={onSort} type='horizontal' />
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default DragAndDrop;
+export default DragAndDrop

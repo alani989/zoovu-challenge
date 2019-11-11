@@ -21,7 +21,6 @@
   color: #09d3ac;
 }
 
-/* custom css */
 .find-me-div {
   background-color: whitesmoke;
   padding: 5em;
@@ -33,10 +32,9 @@
   height: 150px;
 }
 
-.card-img-hidden {
-}
-
-.card-img-flipped {
+.zoovu-logo {
+  height: 100%;
+  width: 50%;
 }
 
 .card {
