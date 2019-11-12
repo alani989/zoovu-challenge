@@ -23,13 +23,11 @@ const Layout = () => {
   return (
     <div className='p-5'>
       <div className='container'>
-        <Score penalty={penalty} solved={solved} submitScore={submitScore}/>
+        <Score penalty={penalty} solved={solved} submitScore={submitScore} />
       </div>
       {!scoreSubmitted ? (
         <Fragment>
-          <div className='row'>
-            <MainContainer penalize={penalize} endGame={endGame} />
-          </div>
+          <MainContainer penalize={penalize} endGame={endGame} />
         </Fragment>
       ) : (
         <EndGame />

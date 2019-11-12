@@ -8,7 +8,7 @@ const Score = props => {
     if (props.solved) {
       return props.submitScore(true)
     }
-  }, [props.solved])
+  }, [props, props.solved])
 
   const getFinalScore = score => {
     setFinalScore(score)

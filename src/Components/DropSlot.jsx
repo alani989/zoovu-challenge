@@ -1,9 +1,9 @@
 import React from 'react'
 
-const DropSlot = (props) => {
+const DropSlot = props => {
   return (
     <div
-      id={`DropSlot-${props.id}`}
+      id={props.id}
       className='drop-box'
       onDragOver={e => props.allowDrop(e)}
       onDrop={e => props.drop(e)}

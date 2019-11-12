@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import DragSortableList from 'react-drag-sortable'
 
 const imagesPath = process.env.PUBLIC_URL + '/assets/'
 
-const DragAndDrop = props => {
+const shuffleArry = (arr) => {
+  var currentIndex = arr.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = arr[currentIndex];
+    arr[currentIndex] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue;
+  }
+  return arr;
+}
 
-  const drawRandomCards = letters => {
+const DragAndDrop = props => {
+  const drawRandomCards = (letters) => {
+    shuffleArry(letters)
     return letters.map((letter, i) => {
       return (
         <div className='drag-box' key={`drag-box-key-${i}`}>
@@ -25,41 +40,27 @@ const DragAndDrop = props => {
     e.dataTransfer.setData('text', e.target.id)
   }
 
-  const onSort = sortedList => {
-    props.getSortLetters(sortedList)
-    console.log(sortedList)
-    if (!props.findMeItem) {
-      checkSort(sortedList)
-    }
+  const onSort = (sortedList, e) => {
+    return null
   }
 
-  const checkSort = arr => {
-    let sorted = false
-    if (
-      arr[0].id === 'z' &&
-      arr[1].id === 'o' &&
-      arr[2].id === 'o2' &&
-      arr[3].id === 'v' &&
-      arr[4].id === 'u'
-    ) {
-      sorted = true
-    }
-
-    if (sorted === true) {
-      props.endGame()
-    }
-    return sorted
-  }
-
-  return (
-    <div>
-      <div className='row'>{drawRandomCards(props.letters)}</div>
-      <hr />
-      <div className='row'>
-        <DragSortableList items={props.sortList} onSort={onSort} type='horizontal' />
+  const renderComponent = useMemo(() => {
+    return (
+      <div>
+        <div className='row'>{drawRandomCards(props.letters)}</div>
+        <hr />
+        <div className='row'>
+          <DragSortableList
+            items={props.sortList}
+            onSort={onSort}
+            type='horizontal'
+          />
+        </div>
       </div>
-    </div>
-  )
+    )
+  }, [])
+
+  return renderComponent
 }
 
 export default DragAndDrop
