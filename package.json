@@ -1,7 +1,7 @@
 {
   "name": "zoovu-logo-game",
   "version": "0.1.0",
-  "homepage": "https://github.com/alani989/zoovu-challenge.git",
+  "homepage": "https://alani989.github.io/zoovu-challenge/",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
