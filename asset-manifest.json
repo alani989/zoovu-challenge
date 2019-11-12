@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/alani989/zoovu-challenge.git/static/css/main.d06e755f.chunk.css",
+    "main.js": "/alani989/zoovu-challenge.git/static/js/main.606bfadc.chunk.js",
+    "main.js.map": "/alani989/zoovu-challenge.git/static/js/main.606bfadc.chunk.js.map",
+    "runtime-main.js": "/alani989/zoovu-challenge.git/static/js/runtime-main.bc97ef4b.js",
+    "runtime-main.js.map": "/alani989/zoovu-challenge.git/static/js/runtime-main.bc97ef4b.js.map",
+    "static/css/2.b0bb7f2c.chunk.css": "/alani989/zoovu-challenge.git/static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.a0d34a8e.chunk.js": "/alani989/zoovu-challenge.git/static/js/2.a0d34a8e.chunk.js",
+    "static/js/2.a0d34a8e.chunk.js.map": "/alani989/zoovu-challenge.git/static/js/2.a0d34a8e.chunk.js.map",
+    "index.html": "/alani989/zoovu-challenge.git/index.html",
+    "precache-manifest.6b3fef006acc5cb057aeb04a0cf7bc6c.js": "/alani989/zoovu-challenge.git/precache-manifest.6b3fef006acc5cb057aeb04a0cf7bc6c.js",
+    "service-worker.js": "/alani989/zoovu-challenge.git/service-worker.js",
+    "static/css/2.b0bb7f2c.chunk.css.map": "/alani989/zoovu-challenge.git/static/css/2.b0bb7f2c.chunk.css.map",
+    "static/css/main.d06e755f.chunk.css.map": "/alani989/zoovu-challenge.git/static/css/main.d06e755f.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bc97ef4b.js",
+    "static/css/2.b0bb7f2c.chunk.css",
+    "static/js/2.a0d34a8e.chunk.js",
+    "static/css/main.d06e755f.chunk.css",
+    "static/js/main.606bfadc.chunk.js"
+  ]
+}
